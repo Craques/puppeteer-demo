@@ -3,8 +3,8 @@ let pageTitles = [];
 
 (async()=>{
     const browser = await puppeteer.launch({
-        headless: false,
-        args: ['--start-fullscreen']
+        headless: true,
+        args: ['--no-sandbox']
     })
     const page = await browser.newPage()
     await page.goto('https://news.ycombinator.com/')
