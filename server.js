@@ -11,7 +11,7 @@ app.get('/', async (req, res)=>{
     res.status(200).json({hello: 'Hello world', HNheadings})
 })
 
-const port = process.env.port || 3001
+const port = process.env.port || 3000
 
 app.listen(port, ()=>{
     console.log('listening')
