@@ -14,9 +14,9 @@ exports.addMessage = functions.https.onRequest(async(req, res)=>{
     const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']})
     const page = await browser.newPage()
 
-    await page.goto('https://news.ycombinator.com/')
-    await page.waitFor('.hnname')
-    const pageTitle = await page.evaluate(()=> document.querySelector('.hnname'))
+    await page.goto('https://google.com/')
+    await page.waitFor('img#hplogo')
+    const pageTitle = await page.evaluate(()=> document.querySelector('img#hplog').src)
 
     res.send(pageTitle)
     browser.close()
