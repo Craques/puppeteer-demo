@@ -24,8 +24,8 @@ const getHeaders = async()=>{
         await page.waitFor('td')
         //Get first page data
         const stories = await page.evaluate(()=>{
-            return Array.from(document.querySelectorAll('td.title:not([align="right"])')).map((title)=>{
-                return title.querySelector('a').innerText
+            return Array.from(document.querySelectorAll('td.title:not([align="right"]) > .storylink')).map((link)=>{
+                return link.textContent
             })
         })
         console.log('I am here', n)
