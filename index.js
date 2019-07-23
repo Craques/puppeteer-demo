@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 let pageTitles = [];
 
-(async()=>{
+const getHeaders = async()=>{
     const browser = await puppeteer.launch({
         headless: true,
         args: ['--no-sandbox']
@@ -32,6 +32,9 @@ let pageTitles = [];
         pageTitles = [...pageTitles, ...stories]
         n++
     }
-    console.log(pageTitles)
     await browser.close()
-})()
+    //console.log(pageTitles)
+    return pageTitles
+}
+
+module.exports = {getHeaders: getHeaders}

@@ -1,9 +1,10 @@
 const express = require('express')
-
+const {getHeaders} = require('./index')
 const app = express()
 
-app.get('/', (req, res)=>{
-    res.status(200).send('Hello world')
+app.get('/', async (req, res)=>{
+    const HNheadings = await getHeaders()
+    res.status(200).json({hello: 'Hello world', HNheadings})
 })
 
 const port = process.env.port || 3000
