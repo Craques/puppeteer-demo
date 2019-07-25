@@ -12,7 +12,8 @@ const getHeaders = async()=>{
     //Get first page data
     const stories = await page.evaluate(()=>{
         return Array.from(document.querySelectorAll('td.title:not([align="right"])')).map((title)=>{
-            return title.querySelector('a').innerText
+            const headlineHTML = title.querySelector('a')
+            return {title: headlineHTML.innerText, url: headlineHTML.href }
         })
     })
 
