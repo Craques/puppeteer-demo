@@ -1,7 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const {getHeaders} = require('./index')
-
+//connect to the database
+const {mongoose} = require('./db/config')
 const app = express()
 
 app.use(cors())
