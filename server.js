@@ -9,15 +9,17 @@ const bodyParser =require('body-parser')
 app.use([cors(), bodyParser.json(), bodyParser.urlencoded({extended: true})])
 
 app.get('/', async (req, res)=>{
-    const HNheadings = await getHeaders()
-    res.status(200).json({hello: 'Hello world', HNheadings})
+    const headlines = await getHeaders()
+    Headline.insertMany(headlines)
+    res.status(200).json({headlines})
+
 })
+
 /**
  * @route - add
  * @param {array} req.body - an array of objects containing the titles of the headlines
  * @returns {response} - saves data to the database and sends to the user 
  */
-
 app.post('/add', async (req, res)=>{
     console.log(req.body)
     //await Headline.collection.insertMany([{title: 'Pasta is great'}, {title: 'Give me more food'}])
