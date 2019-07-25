@@ -7,4 +7,4 @@ const headlineSchema = new Schema({
 })
 
 const Headline = model('Headline', headlineSchema)
-module.exports = Headline
+module.exports = {Headline}
